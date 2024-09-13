@@ -12,7 +12,7 @@ Assurez-vous d'avoir Python installé sur votre machine. Téléchargez le code s
 
 1. Clonez le dépôt (ou téléchargez le code source) :
    ```bash
-   git clone <URL-DU-DEPOT>
+   git clone https://github.com/AoukouKwadjo/Pendu.git
    ```
    
 2. Accédez au répertoire du projet :
