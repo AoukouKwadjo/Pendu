@@ -1,6 +1,6 @@
 # Jeu du Pendu
 
-![Streaming App](images/auth.png) 
+![Pendu App](images/auth.png) 
 
 ## Description
 
