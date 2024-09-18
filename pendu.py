@@ -1,40 +1,43 @@
 import os
+from tkinter import *
 from Donnee.recup import *
-
-def hohayo():
-    os.system("clear")
-    print ("*****************************Hohayo Sekai*********************************************",end="\n\n")
-    print ("\t\t\t Bienvenue au jeu du pendu !\n")
-    print("\tLes regles sont simples: vous devez deviner le mot mystere \n\
-     a chaque iteration nous devoilons les bonne lettre de que vous taper\n.\
-    a chaque iterration vous perdez un point, vous avez 10 point en tout.\n")
+from Main_Interface import *
+from interface.identify import *
+from interface.fin import *
+test=True
     
-os.system("clear")
-mot_mystere=mot_pendu()
+fenetre=Tk()
+Main_Bar=Menu(fenetre)
 
-hohayo()
+Menu_fichier=Menu(Main_Bar,tearoff=0)
+Main_Bar.add_cascade(label='fichier',menu=Menu_fichier,background='whitesmoke',activebackground='yellow')
 
+Menu_afichage=Menu(Main_Bar,tearoff=0)
+Main_Bar.add_cascade(label='afficher',menu=Menu_afichage,background='whitesmoke',activebackground='green')
+
+Menu_fichier.add_command(label='Enregistrer')
+Menu_fichier.add_command(label="Ouvrir")
+Menu_fichier.add_command(label="Aide")
+Menu_fichier.add_command(label="Quitter",command=quit)
+
+
+fenetre.config(menu=Main_Bar)
+
+identify=Identify(fenetre)
+
+identify.mainloop()
 user,scores=identifiant()
-coups=scores
+user=identify.__del__()
+while test:
 
-verif=saisis=""
+    pendus=mot_pendu()
 
-while (verif!=mot_mystere)and coups>0:
-    hohayo()
-    print(verif,end="\nScore :{}\n".format(coups))
+    MainInterface=Interface(fenetre,pendus,user,scores)
     
-    saisis+=saisi()
-    verif=verif_motPendu(mot_mystere,saisis)
+    MainInterface.mainloop()
+    scores=MainInterface.__del__()
 
-    coups-=1
-
-os.system("clear")
-print ("**********************************Hohayo Sekai*********************************************",end="\n\n\n\t\t\t\t\t")
-
-if coups<=0:
-    print ("desoler u as perdus !\n")
-else:
-    print ("Bravos u as reussie")
-    
-print("\t\t\tle mot mystere etait {0} ton score est de: {1}".format(mot_mystere,coups),end="\n\n\n")
-sauver_score((user,coups))
+    finProgramme=terminer(fenetre,score=scores,users=user,pendu=pendus)
+    finProgramme.mainloop()
+    test=finProgramme.__del__()
+sauver_score((user,scores))

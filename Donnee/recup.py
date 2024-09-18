@@ -4,7 +4,7 @@ from random import choice
 import pickle
 
 def identifiant():
-    if os.path.exists(identifiants):
+    if os.path.exists(identifiants+"fgh"):
         with open(identifiants,"rb") as identifiants_file:
             unpickle=pickle.Unpickler(identifiants_file)
             nom,scores=unpickle.load()
@@ -14,13 +14,7 @@ def identifiant():
             
     else:
         scores=nb_coups
-        suite=True
-        while suite:
-            nom=input("veuillez saisir un nom: ")
-            if len(nom)<=2:
-                print("le nom est trop court au moin trois caractere !")
-            else:
-                suite=False
+        nom=''
     user=(nom,scores)
     return user
 
@@ -36,9 +30,9 @@ def verif_motPendu(mdr,mr):
     mot=""
     for c in mdr:
         if c in mr:
-            mot+=c
+            mot+='  '+c
         else:
-            mot+='*'
+            mot+='  *'
     return mot
                 
 def saisi():

@@ -3,7 +3,7 @@ utiles au programme pendu"""
 # Nombre de coups par partie
 nb_coups = 8
 # Nom du fichier stockant les scores
-identifiants = "identifiants"
+identifiants = "pendu_user"
 #Taille max du mot
 taille=10
 # Liste des mots du pendu
@@ -17,7 +17,7 @@ liste_mots = [
 "couteau",
 "fichier",
 "garage",
-"glace",
+"glace", 
 "journal",
 "kiwi",
 "lampe",
