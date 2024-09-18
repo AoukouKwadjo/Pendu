@@ -1,5 +1,7 @@
 # Jeu du Pendu
 
+![Streaming App](images/auth.png) 
+
 ## Description
 
 Le jeu du pendu est un jeu de mots classique où le joueur doit deviner un mot caché en proposant des lettres. Pour chaque lettre incorrecte, une partie du dessin du pendu est ajoutée. Le joueur gagne s'il devine le mot avant que le dessin ne soit complet.
